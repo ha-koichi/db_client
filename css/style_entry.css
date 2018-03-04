@@ -1,0 +1,24 @@
+.navbar {
+  margin-bottom: 10px;
+}
+.navbar-brand {
+    float: left;
+    height: 70px;
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.btn-area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.btn-area .nenu-btn-general {
+  width: 49%;
+}
+.btn-area .nenu-btn-admin {
+  width: 24%;
+}
+.button-list {
+  margin-bottom: 15px;
+}

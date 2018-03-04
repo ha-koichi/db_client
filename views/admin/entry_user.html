@@ -1,0 +1,63 @@
+<div class="col-md-6 col-md-offset-3" ng-controller="entryAdminUserController">
+  <form>
+    <div class="form-group">
+      <label for="inputName">Name</label>
+      <input type="name" class="form-control" id="inputName" placeholder="Name" required autofocus  ng-model="name">
+    </div>
+    <div class="form-group">
+      <label for="inputDesignation">Designation</label>
+      <input type="designation" class="form-control" id="inputDesignation" placeholder="Designation" required ng-model="designation">
+    </div>
+    <div class="form-group">
+      <label for="inputDesignation">Program</label>
+      <select class="form-control" required ng-model="department">
+        <option>AMC</option>
+        <option>CBHC</option>
+        <option>CDC</option>
+        <option>ESD</option>
+        <option>HEP</option>
+        <option>HIS_eHealth</option>
+        <option>HRM</option>
+        <option>IFM</option>
+        <option>IHSM</option>
+        <option>TRD</option>
+        <option>MNCAH</option>
+        <option>NASP</option>
+        <option>NCDC</option>
+        <option>NEC</option>
+        <option>NNS</option>
+        <option>PLSM</option>
+        <option>PMR</option>
+        <option>PST</option>
+        <option>TLC</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail1">Email Address</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="Email" required ng-model="email">
+    </div>
+    <div class="form-group">
+      <label for="inputMobile">Modile No.</label>
+      <input type="modile" class="form-control" id="inputMobile" placeholder="Modile No." required ng-model="mobile">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" required ng-model="password">
+    </div>
+    <div class="form-group">
+      <label for="inputFile">File input</label>
+      <span class="inputFileButton"><input type="file" file-model="file" enctype="multipart/form-data"></span>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label><input type="checkbox" value="" ng-model="adminFlg">Administer User</label>
+      </div>
+    </div>
+    <div class="alert alert-success col-md-12" role="alert" ng-show="succesFlag">Complete saving user's information</div>
+    <div class="alert alert-danger col-md-12" role="alert" ng-show="errorFlag">Failure to connect server</div>
+    <div class="col-md-2 col-md-offset-10">
+      <button type="submit" class="btn btn-default " ng-click="entry(content)">Submit</button>
+    </div>
+  </form>
+  <img ng-if="srcUrl" ng-src="{{srcUrl}}">
+</div>

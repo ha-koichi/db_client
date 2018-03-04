@@ -1,0 +1,38 @@
+<div class="col-md-6 col-md-offset-3" ng-controller="entryUserController">
+  <form>
+    <div class="form-group">
+      <label for="inputName">Name</label>
+      <input type="name" class="form-control" id="inputName" placeholder="Name" required autofocus  ng-model="name">
+    </div>
+    <div class="form-group">
+      <label for="inputDesignation">Designation</label>
+      <input type="designation" class="form-control" id="inputDesignation" placeholder="Designation" required ng-model="designation">
+    </div>
+    <div class="form-group">
+      <label for="inputDesignation">Program</label>
+      <input type="program" class="form-control" id="inputProgram" required ng-model="department" disabled>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail1">Email address</label>
+      <input type="email" class="form-control" id="inputEmail1" placeholder="Email" required ng-model="email">
+    </div>
+    <div class="form-group">
+      <label for="inputMobile">Modile No.</label>
+      <input type="modile" class="form-control" id="inputMobile" placeholder="Modile No." required ng-model="mobile">
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password" required ng-model="password">
+    </div>
+    <div class="form-group">
+      <label for="inputFile">File input</label>
+      <input type="file" file-model="file" enctype="multipart/form-data">
+    </div>
+    <div class="alert alert-success col-md-12" role="alert" ng-show="succesFlag">Complete saving user's information</div>
+    <div class="alert alert-danger col-md-12" role="alert" ng-show="errorFlag">Failure to connect server</div>
+    <div class="col-md-2 col-md-offset-10">
+      <button type="submit" class="btn btn-default " ng-click="entry(content)">Submit</button>
+    </div>
+  </form>
+  <img ng-if="srcUrl" ng-src="{{srcUrl}}">
+</div>

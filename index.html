@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Real Time Health Information Dashboard</title>
+
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img src="images/Top.png"></a>
+        </div>
+      </nav>
+      <div class="main" ng-controller="mainController">
+        <div class="title-area">
+          <div class="col-md-6 col-md-offset-3 title">
+            <p class="">Line-Director wise activities&nbsp&nbsp&nbsp&nbsp&nbspDate:</p>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <div class='input-group date setDate'>
+                  <input type='text' class="form-control" ng-model="setTime" ng-change="changeTime()" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-area">
+          <div class="container">
+            <div class="col-md-12">
+              <div class="btns">
+                <label class="btn btn-default panel-list amc" ng-model="radioModel" uib-btn-radio="'AMC'" ng-click="clickPanel(0)">AMC</label>
+                <label class="btn btn-default panel-list cbhc" ng-model="radioModel" uib-btn-radio="'CBHC'" ng-click="clickPanel(1)">CBHC</label>
+                <label class="btn btn-default panel-list cbc" ng-model="radioModel" uib-btn-radio="'CDC'" ng-click="clickPanel(2)">CDC</label>
+                <label class="btn btn-default panel-list esd" ng-model="radioModel" uib-btn-radio="'ESD'" ng-click="clickPanel(3)">ESD</label>
+                <label class="btn btn-default panel-list hep" ng-model="radioModel" uib-btn-radio="'HEP'" ng-click="clickPanel(4)">HEP</label>
+                <label class="btn btn-default panel-list his_eh" ng-model="radioModel" uib-btn-radio="'HIS_eHealth'" ng-click="clickPanel(5)">HIS &amp; eHealth</label>
+                <label class="btn btn-default panel-list hrm" ng-model="radioModel" uib-btn-radio="'HRM'" ng-click="clickPanel(6)">HRM</label>
+                <label class="btn btn-default panel-list ifm" ng-model="radioModel" uib-btn-radio="'IFM'" ng-click="clickPanel(7)">IFM</label>
+                <label class="btn btn-default panel-list ihsm" ng-model="radioModel" uib-btn-radio="'IHSM'" ng-click="clickPanel(8)">IHSM</label>
+                <label class="btn btn-default panel-list trd" ng-model="radioModel" uib-btn-radio="'TRD'" ng-click="clickPanel(9)">TRD</label>
+                <label class="btn btn-default panel-list mncah" ng-model="radioModel" uib-btn-radio="'MNCAH'" ng-click="clickPanel(10)">MNCAH</label>
+                <label class="btn btn-default panel-list nasp" ng-model="radioModel" uib-btn-radio="'NASP'" ng-click="clickPanel(11)">NASP</label>
+                <label class="btn btn-default panel-list ncdc" ng-model="radioModel" uib-btn-radio="'NCDC'" ng-click="clickPanel(12)">NCDC</label>
+                <label class="btn btn-default panel-list nec" ng-model="radioModel" uib-btn-radio="'NEC'" ng-click="clickPanel(13)">NEC</label>
+                <label class="btn btn-default panel-list nns" ng-model="radioModel" uib-btn-radio="'NNS'" ng-click="clickPanel(14)">NNS</label>
+                <label class="btn btn-default panel-list plsm" ng-model="radioModel" uib-btn-radio="'PLSM'" ng-click="clickPanel(15)">PLSM</label>
+                <label class="btn btn-default panel-list pmr" ng-model="radioModel" uib-btn-radio="'PMR'" ng-click="clickPanel(16)">PMR</label>
+                <label class="btn btn-default panel-list pst" ng-model="radioModel" uib-btn-radio="'PST'" ng-click="clickPanel(17)">PST</label>
+                <label class="btn btn-default panel-list tlc" ng-model="radioModel" uib-btn-radio="'TLC'" ng-click="clickPanel(18)">TLC</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-area">
+          <div class="col-md-4 profile-area">
+            <img ng-src="data:image/jpeg;base64, {{userData.$picture}}"/>
+            <div class="profile">
+              <ul class="list-unstyled">
+                <li><h4><strong><p class="text-center" ng-cloak>{{userData.name}}</p></strong></h4></li>
+                <li><h4><strong><p class="text-center" ng-cloak>{{userData.designation}}</p></strong></h4></li>
+                <li><h4><strong><p class="text-center"><a ng-cloak>{{userData.email}}</a></strong></h4></p></li>
+                <li><h4><strong><p class="text-center" ng-cloak>{{userData.mobile}}</p></strong></h4></li>
+            　</ul>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="panel panel-default activity-area" ng-click="touchActivity()">
+              <div class="panel-body">
+                <table class="table table-hover list-table" ng-show="activities" ng-hide="detailList">
+                  <thead>
+                    <tr>
+                      <th>Start time</th><th>End time</th><th>Title</th>
+                    </tr>
+                    <tbody>
+                      <tr ng-repeat="active in activities" ng-click="showDetail($index)">
+                        <td>{{active.from_date}}</td>
+                        <td>{{active.to_date}}</td>
+                        <td>{{active.title}}</td>
+                      </tr>
+                    </tbody>
+                  </thead>
+                </table>
+                <table class="table table-hover datail-table" ng-show="detailList">
+                  <thead>
+                    <tbody>
+                      <tr>
+                        <td class="item">Start time:</td><td>{{detailList.from_date}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">End time:</td><td>{{detailList.to_date}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">Title:</td><td>{{detailList.title}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">Description:</td><td>{{detailList.description}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">Grace As:</td><td>{{detailList.grace_as}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">Location:</td><td>{{detailList.location}}</td>
+                      </tr>
+                      <tr>
+                        <td class="item">Remarks:</td><td>{{detailList.remarks}}</td>
+                      </tr>
+                    </tbody>
+                  </thead>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="lib/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-1.3.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/ui-router-master/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/moment/moment.js"></script>
+    <script type="text/javascript" src="js/constant.js"></script>
+    <script type="text/javascript" src="js/loginController.js"></script>
+    <script type="text/javascript" src="js/mainController.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>

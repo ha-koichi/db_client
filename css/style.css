@@ -1,0 +1,66 @@
+.navbar {
+  margin-bottom: 10px;
+}
+.navbar-brand {
+    float: left;
+    height: 70px;
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.title-area {
+  min-height: 40px;
+}
+.title-area p {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 17px;
+  line-height: 40px
+}
+.title-area .title {
+  width: 339px;
+}
+
+.panel-area {
+  min-height: 60px;
+}
+.panel-area .container {
+  width: 1305px;
+}
+.panel-area .btns{
+  padding-left: auto;
+  padding-right: auto;
+}
+.panel-area .panel-list {
+  margin-bottom: 10px;
+}
+
+.main-area {
+  padding-top: 20px;
+}
+
+.profile-area {
+  margin-top: 10px;
+}
+.profile-area img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 300px;
+}
+.profile-area .profile {
+  display: block;
+}
+
+.activity-area {
+  margin-top: 10px;
+  min-height: 380px;
+}
+.activity-area .panel-body {
+  padding-top: 50px;
+}
+.activity-area .panel-body .datail-table .item {
+  width: 15%;
+}

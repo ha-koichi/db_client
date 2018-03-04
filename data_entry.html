@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="login">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Data Entry - Real Time Health Information Dashboard</title>
+
+    <link rel="stylesheet" href="lib/bootstrap-3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="lib/angular-bootstrap-datetimepicker/src/css/datetimepicker.css" />
+    <link rel="stylesheet" href="css/style_entry.css">
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><img src="images/Top.png"></a>
+        </div>
+      </nav>
+      <div ui-view>
+        <!-- template area -->
+      </div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src="lib/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/moment/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="lib/moment/locale/en-gb.js"></script>
+    <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-1.3.1.min.js"></script>
+    <script type="text/javascript" src="lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="lib/ui-router-master/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.js"></script>
+    <script type="text/javascript" src="lib/angular-bootstrap-datetimepicker/src/js/datetimepicker.templates.js"></script>
+    <script type="text/javascript" src="lib/angular-date-time-input-master/src/dateTimeInput.js"></script>
+    <script type="text/javascript" src="js/loginController.js"></script>
+    <script type="text/javascript" src="js/general/entryController.js"></script>
+    <script type="text/javascript" src="js/general/entryUserController.js"></script>
+    <script type="text/javascript" src="js/general/entryActivityController.js"></script>
+    <script type="text/javascript" src="js/admin/entryAdminController.js"></script>
+    <script type="text/javascript" src="js/admin/entryAdminUserController.js"></script>
+    <script type="text/javascript" src="js/admin/entryAdminActivityController.js"></script>
+    <script type="text/javascript" src="js/admin/entryAdminUserUpdateController.js"></script>
+    <script type="text/javascript" src="js/admin/entryAdminActivityUpdateController.js"></script>
+  </body>
+</html>

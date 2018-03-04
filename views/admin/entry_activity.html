@@ -1,0 +1,65 @@
+<div class="col-md-6 col-md-offset-3" ng-controller="entryAdminActivityController">
+  <form>
+    <div class="form-group">
+      <label for="inputName">Activity Title</label>
+      <input type="activityTitle" class="form-control" id="inputActivityTitle" placeholder="Activity Title" required  ng-model="activityTitle">
+    </div>
+    <div class="form-group">
+      <label for="inputActivityDescription">Activity Description</label>
+      <textarea class="form-control" rows="3" id="inputActivityDescription" required  ng-model="activityDescription"></textarea>
+    </div>
+    <div class='col-md-12'>
+      <div class='col-md-5'>
+        <label for="inputName">Start Date and Time</label>
+        <div class="form-group">
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#">
+              <div class="input-group"><input type="text" class="form-control" data-ng-model="fromDataTime" required data-date-time-input="DD/MM/YYYY HH:mm">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar">
+                  </i></span>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <datetimepicker data-ng-model="fromDataTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"/>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-5'>
+        <label for="inputName">End Date and Time</label>
+        <div class="form-group">
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#">
+              <div class="input-group"><input type="text" class="form-control" data-ng-model="toDataTime" required data-date-time-input="DD/MM/YYYY HH:mm">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-calendar">
+                  </i></span>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <datetimepicker data-ng-model="toDataTime" data-datetimepicker-config="{ dropdownSelector: '#dropdown1' }"/>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLocation">Location</label>
+      <input type="location" class="form-control" id="inputLocation" placeholder="Location" required  ng-model="location">
+    </div>
+    <div class="form-group">
+      <label for="inputGrace_as">Grace As</label>
+      <input type="grace_as" class="form-control" id="inputGrace_as" placeholder="Grace As" required  ng-model="grace_as">
+    </div>
+    <div class="form-group">
+      <label for="inputRemarks">Remarks</label>
+      <textarea class="form-control" rows="3" id="inputRemarks" required  ng-model="remarks"></textarea>
+    </div>
+    <div class="alert alert-success col-md-12" role="alert" ng-show="succesFlag">Complete saving your activity information</div>
+    <div class="alert alert-danger col-md-12" role="alert" ng-show="errorFlag">Failure to connect server</div>
+    <div class="col-md-2 col-md-offset-10">
+      <button type="submit" class="btn btn-default" ng-click="entry()">Submit</button>
+    </div>
+  </form>
+</div>

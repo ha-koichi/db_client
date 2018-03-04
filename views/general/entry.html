@@ -1,0 +1,11 @@
+<div class="col-md-6 col-md-offset-3" ng-controller="entryController">
+  <div class="text-center btn-area">
+    <p>
+      <label class="btn btn-default nenu-btn-general" ng-model="radioModel" uib-btn-radio="'user'" ui-sref="entry.user">User Input</label>
+      <label class="btn btn-default nenu-btn-general" ng-model="radioModel" uib-btn-radio="'activity'" ui-sref="entry.activity({user:obj})">Activity Input</label>
+    </p>
+  </div>
+</div>
+<div ui-view>
+  <!-- template area -->
+</div>
